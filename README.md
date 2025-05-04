@@ -26,6 +26,7 @@ ChatGPT will be given the the following prompt along with the python code snippe
         pip3 install openai
 
 3. Set your OpenAI API key as an environment variable from the terminal
+    ```bash
     export OpenAI_API_Key="your-api-key"
 
 4. Create a JSON file with code snippets to be reviewed. Sample formatting can be found in the sampleSnippets.json file
@@ -33,6 +34,7 @@ ChatGPT will be given the the following prompt along with the python code snippe
 ### Running the Program
 
 1. run the script
+    ```bash 
     python3 reviewer.py
 
 2. When prompted enter the name of the JSON file ex. sampleSnippets.json

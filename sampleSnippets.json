@@ -1,0 +1,22 @@
+[
+    {
+        "id": "good_sort_function",
+        "code": "def sort_list(lst):\n    return sorted(lst)\n\nprint(sort_list([5, 2, 8, 1]))"
+    },
+    {
+        "id": "needs_improvement_sort_function",
+        "code": "def sort_list(lst):\n    if not all(isinstance(i, int) for i in lst):\n        return 'Error'\n    return sorted(lst)\n\nprint(sort_list([5, 2, 'a', 1]))"
+    },
+    {
+        "id": "buggy_sort_function",
+        "code": "def sort_list(lst):\n    return lst.sort()\n\nprint(sort_list([5, 2, 8, 1]))"
+    },
+    {
+        "id": "good_multiply_function",
+        "code": "def multiply(a, b):\n    return a * b\n\nprint(multiply(5, 3))"
+    },
+    {
+        "id": "buggy_multiply_function",
+        "code": "def multiply(a, b):\n    return a ** b\n\nprint(multiply('5', 3))"
+    }
+]

@@ -1,0 +1,151 @@
+Code ID: good_sort_function
+
+You are a code reviewer. Analyze the following Python code snippet and return:
+    1. a brief quality summary
+    2. Line-specific comments for any issues (only for the lines that require improvement)
+    3. a quality rating: Good / Needs Improvement / Buggy
+
+Code: 
+``` python
+def sort_list(lst):
+    return sorted(lst)
+
+print(sort_list([5, 2, 8, 1])) 
+```
+
+Review:
+
+1. **Quality Summary:**  
+The code is simple, clear, and correctly implements a function to sort a list. It uses Python's built-in `sorted()` function, which is efficient and idiomatic. The function name and parameter are descriptive. The code is readable and concise.
+
+2. **Line-specific comments for any issues:**  
+No issues found. All lines are appropriate and follow good practices for this simple functionality.
+
+3. **Quality Rating:**  
+Good
+--------------------------------------------------
+
+Code ID: needs_improvement_sort_function
+
+You are a code reviewer. Analyze the following Python code snippet and return:
+    1. a brief quality summary
+    2. Line-specific comments for any issues (only for the lines that require improvement)
+    3. a quality rating: Good / Needs Improvement / Buggy
+
+Code: 
+``` python
+def sort_list(lst):
+    if not all(isinstance(i, int) for i in lst):
+        return 'Error'
+    return sorted(lst)
+
+print(sort_list([5, 2, 'a', 1])) 
+```
+
+Review:
+
+**1. Brief Quality Summary:**  
+The function `sort_list` checks if all elements in the input list are integers before sorting. If not, it returns the string `'Error'`. The code is simple and mostly clear, but the error handling could be improved for better clarity and consistency. Returning a string as an error indicator is not Pythonic; raising an exception would be more appropriate. Additionally, the function does not handle empty lists or other edge cases explicitly, though it works as intended for the given example.
+
+**2. Line-specific Comments for Issues:**  
+```python
+    if not all(isinstance(i, int) for i in lst):   # Line 2
+        return 'Error'                            # Line 3
+```
+- **Line 3:** Returning a string to indicate an error is not best practice. Consider raising a `TypeError` or `ValueError` instead for clearer error handling and to follow Python conventions.
+
+**3. Quality Rating:**  
+**Needs Improvement**  
+While the code works for its intended purpose, the error handling approach is not ideal and should be improved for better code quality and maintainability.
+--------------------------------------------------
+
+Code ID: buggy_sort_function
+
+You are a code reviewer. Analyze the following Python code snippet and return:
+    1. a brief quality summary
+    2. Line-specific comments for any issues (only for the lines that require improvement)
+    3. a quality rating: Good / Needs Improvement / Buggy
+
+Code: 
+``` python
+def sort_list(lst):
+    return lst.sort()
+
+print(sort_list([5, 2, 8, 1])) 
+```
+
+Review:
+
+1. **Brief Quality Summary:**  
+The function attempts to sort a list and return the sorted result. However, it misuses the `list.sort()` method, which sorts the list in place and returns `None`. As a result, the function returns `None` instead of the sorted list. This is a common mistake when working with Python lists.
+
+2. **Line-specific Comments for Issues:**  
+```python
+def sort_list(lst):
+    return lst.sort()  # Issue: lst.sort() sorts in place and returns None. Should use 'return sorted(lst)' or 'lst.sort(); return lst'
+```
+
+3. **Quality Rating:**  
+**Needs Improvement**
+--------------------------------------------------
+
+Code ID: good_multiply_function
+
+You are a code reviewer. Analyze the following Python code snippet and return:
+    1. a brief quality summary
+    2. Line-specific comments for any issues (only for the lines that require improvement)
+    3. a quality rating: Good / Needs Improvement / Buggy
+
+Code: 
+``` python
+def multiply(a, b):
+    return a * b
+
+print(multiply(5, 3)) 
+```
+
+Review:
+
+1. Quality Summary  
+The code is simple, clear, and correctly implements a function to multiply two numbers. The function is named appropriately, and the usage example is straightforward. There are no apparent bugs or style issues.
+
+2. Line-specific Comments  
+No issues found; all lines are clear and correct.
+
+3. Quality Rating  
+Good
+--------------------------------------------------
+
+Code ID: buggy_multiply_function
+
+You are a code reviewer. Analyze the following Python code snippet and return:
+    1. a brief quality summary
+    2. Line-specific comments for any issues (only for the lines that require improvement)
+    3. a quality rating: Good / Needs Improvement / Buggy
+
+Code: 
+``` python
+def multiply(a, b):
+    return a ** b
+
+print(multiply('5', 3)) 
+```
+
+Review:
+
+1. Brief Quality Summary  
+The function multiply is intended to perform multiplication, but it uses the exponentiation operator (**), which is misleading. The function is then called with a string and an integer, which, with the current implementation, will raise a TypeError. The code lacks input validation and the function name does not match its behavior.
+
+2. Line-specific comments for any issues  
+```python
+def multiply(a, b):
+    return a ** b  # Issue: Uses exponentiation (**) instead of multiplication (*). This is misleading given the function name.
+```
+```python
+print(multiply('5', 3))  # Issue: Passing a string as the first argument will cause a TypeError with the exponentiation operator.
+```
+
+3. Quality Rating  
+Buggy
+--------------------------------------------------
+

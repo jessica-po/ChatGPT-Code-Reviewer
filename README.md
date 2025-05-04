@@ -19,7 +19,7 @@ ChatGPT will be given the the following prompt along with the python code snippe
 ## Setup
 1. Switch into the ChatGPT-Code-Reviewer Directory
     ```bash
-    cd ChatGPT-Code-Reviewer Directory
+    cd ChatGPT-Code-Reviewer
 
 2. Install the required libaries
     ```bash
